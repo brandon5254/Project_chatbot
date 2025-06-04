@@ -1,4 +1,3 @@
-// src/bienvenida.js
 const fs = require('fs');
 const path = require('path');
 const { MessageMedia } = require('whatsapp-web.js');
