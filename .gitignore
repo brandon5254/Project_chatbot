@@ -1,0 +1,17 @@
+# Ignorar dependencias y cache
+node_modules/
+.wwebjs_cache/
+session/
+
+# Ignorar datos temporales
+*.log
+*.tmp
+*.sqlite
+*.db
+
+# Ignorar configuraciones locales
+.env
+.vscode/
+
+# Ignorar archivos generados automáticamente
+data/no_reconocidas.json
