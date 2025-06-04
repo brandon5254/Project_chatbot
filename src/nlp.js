@@ -26,13 +26,13 @@ function crearBuscadorTFIDF(corpus) {
   const tfidf = new TfIdf();
   corpus.forEach(item => {
     const procesado = preprocesarTexto(item.pregunta).join(' '); // Preprocesa la pregunta
-    tfidf.addDocument(procesado); // Agrega documento TF-IDF
+    tfidf.addDocument(procesado); 
   });
   return tfidf;
 }
 
 /**
- * Convierte una pregunta/documento en un vector numérico basado en su peso TF-IDF.
+ * Convertimos una pregunta/documento en un vector numérico basado en su peso TF-IDF.
  * 
  * @param {TfIdf} tfidf - Modelo entrenado
  * @param {number} docIndex - Índice del documento a vectorizar
@@ -48,7 +48,7 @@ function getTfidfVector(tfidf, docIndex, vocabulario) {
 }
 
 /**
- * Calcula la similitud de coseno entre dos vectores numéricos.
+ * Calculamos la similitud de coseno entre dos vectores numéricos.
  * Es la métrica principal para comparar el mensaje del usuario con el corpus.
  * 
  * @param {number[]} vecA 
@@ -63,7 +63,7 @@ function cosineSimilarity(vecA, vecB) {
 }
 
 /**
- * Busca la mejor respuesta del corpus en función de la similitud semántica
+ * Buscamos la mejor respuesta del corpus en función de la similitud semántica
  * entre el mensaje del usuario y las preguntas almacenadas.
  * 
  * @param {Array} corpus - Base de datos de preguntas y respuestas
