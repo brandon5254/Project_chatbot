@@ -22,7 +22,8 @@ const tfidf = crearBuscadorTFIDF(corpus);
 const numerosBienvenida = [
   "573045874931@c.us",
   "573148859955@c.us",
-  "573153863179@c.us"
+  "573153863179@c.us",
+  "573145586839@c.us"
 ];
 
 client.on('qr', qr => qrcode.generate(qr, { small: true }));
