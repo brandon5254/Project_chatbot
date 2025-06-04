@@ -19,10 +19,9 @@ const client = new Client({
 
 const tfidf = crearBuscadorTFIDF(corpus);
 
-const numerosBienvenida = [
+// Lista de números permitidos para interactuar con el bot
+const numerosAutorizados = [
   "573045874931@c.us",
-  "573148859955@c.us",
-  "573153863179@c.us",
   "573145586839@c.us"
 ];
 
@@ -32,22 +31,21 @@ client.on('ready', async () => {
   console.log("✅ Conexión exitosa con WhatsApp.");
   console.log("🤖 Bot listo para recibir mensajes.");
 
-  for (const numero of numerosBienvenida) {
+  for (const numero of numerosAutorizados) {
     await enviarBienvenida(client, numero);
   }
 
   console.log("📨 Bienvenidas enviadas.");
 });
 
-
 client.on('message', async message => {
   const remitente = message.from;
 
-  // Ignora mensajes de status o no deseados
-  if (remitente === 'status@broadcast') return;
+  // Ignorar mensajes automáticos o de grupos
+  if (remitente === 'status@broadcast' || message.isStatus) return;
 
-  // Solo responder y registrar si el remitente está autorizado
-  const autorizado = numerosBienvenida.includes(remitente);
+  // Verificar si el remitente está autorizado
+  const autorizado = numerosAutorizados.includes(remitente);
 
   if (!autorizado) {
     console.log(`🚫 Mensaje ignorado de ${remitente}`);
@@ -68,6 +66,5 @@ client.on('message', async message => {
     console.log("⚠️ Pregunta no reconocida registrada.");
   }
 });
-
 
 module.exports = { client };
