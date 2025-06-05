@@ -22,7 +22,8 @@ const tfidf = crearBuscadorTFIDF(corpus);
 // Lista de números permitidos para interactuar con el bot
 const numerosAutorizados = [
   "573045874931@c.us",
-  "573145586839@c.us"
+  "573145586839@c.us",
+  "573137825227@c.us"
 ];
 
 client.on('qr', qr => qrcode.generate(qr, { small: true }));
